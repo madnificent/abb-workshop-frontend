@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>All events</h1>
+  {{data-table content=model 
+    fields="name duration frequency"
+    link="events.show"
+    page=page sort=sort filter=filter}}
+
+  {{outlet}}
+</div>
+
+{{outlet}}
