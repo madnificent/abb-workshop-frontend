@@ -2,6 +2,42 @@
   <h1>{{link-to '<<' 'events.index'}} {{model.name}}</h1>
   <p>{{model.description}}</p>
   {{iframe-url url=model.url}}
+
+  {{#if model.themes}}
+    <h4>Thema's</h4>
+    <ul class="collection">
+      {{#each model.themes as |theme|}}
+        <li class="collection-item">
+          {{theme.name}}
+        </li>
+      {{/each}}
+    </ul>
+  {{/if}}
+
+  {{#if model.superEvent}}
+    Hoort bij {{link-to model.superEvent.name 'events.show' model.superEvent}}.
+  {{/if}}
+
+  {{#if model.subEvents.length}}
+    Heeft subevents:
+
+    <ul class="collection">
+      {{#each model.subEvents as |subEvent|}}
+        <li class="collection-item">
+          {{link-to subEvent.name 'events.show' subEvent}}
+        </li>
+      {{/each}}
+    </ul>
+  {{/if}}
+
+  {{#if model.location}}
+    Vindt plaats op {{model.location.name}}, {{model.location.address.streetAddress}}, {{model.location.address.postalCode}} {{model.location.address.locality}}.  {{#if model.location.isWheelchairUnfriendly}}Is toegankelijk met de rolstoel.{{/if}}
+  {{/if}}
+
+  {{#if model.contactPoint}}
+    Neem contact op met {{model.contactPoint.name}} voor meer informatie.
+  {{/if}}
+
 </div>
 
 {{outlet}}
