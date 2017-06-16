@@ -1,6 +1,7 @@
 {
   "name": "gentsefeesten",
   "dependencies": {
-    "materialize": "0.97.6"
+    "materialize": "0.97.6",
+    "d3": "~3.5.3"
   }
 }
